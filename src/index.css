@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-forest: #2d5016;
+  --color-mountain: #6b8e23;
+  --color-sky: #87ceeb;
+  --color-earth: #8b4513;
+  --color-snow: #fffafa;
+}
