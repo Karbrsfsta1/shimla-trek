@@ -8,4 +8,24 @@
   --color-sky: #87ceeb;
   --color-earth: #8b4513;
   --color-snow: #fffafa;
+  --color-apple: #a63d40;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-gray-800 antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+}
+
+@layer components {
+  .skeleton-shimmer {
+    @apply animate-pulse rounded bg-gray-200;
+  }
 }

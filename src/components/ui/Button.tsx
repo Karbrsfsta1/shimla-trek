@@ -11,12 +11,14 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-forest text-white hover:bg-mountain focus:ring-forest',
+  primary:
+    'bg-apple text-white hover:bg-apple-dark focus:ring-apple shadow-sm',
   secondary:
     'bg-white text-forest border border-forest hover:bg-forest hover:text-white focus:ring-forest',
   outline:
-    'bg-transparent text-forest border border-gray-300 hover:bg-gray-100 focus:ring-gray-300',
-  ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-300',
+    'bg-transparent text-forest border border-gray-300 hover:bg-snow focus:ring-forest',
+  ghost:
+    'bg-transparent text-gray-700 hover:bg-gray-100 hover:text-forest focus:ring-gray-300',
   danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
 };
 

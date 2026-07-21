@@ -4,6 +4,15 @@ export function TermsOfService() {
       <h1 className="text-4xl font-bold text-forest">Terms of Service</h1>
       <p className="mt-2 text-sm text-gray-500">Last updated: 19 July 2026</p>
 
+      <div className="mb-8 rounded-lg border border-apple/30 bg-apple/5 p-4 text-sm text-gray-700">
+        <p className="font-medium text-apple">Pre-launch contact placeholder</p>
+        <p className="mt-1">
+          This policy page uses temporary contact details. Before launch, replace all
+          references to <code className="rounded bg-white px-1">update-before-launch@shimlatrek.com</code> and
+          <code className="rounded bg-white px-1">+91 98765 43210</code> with your real business contact information.
+        </p>
+      </div>
+
       <div className="mt-8 space-y-8 text-gray-700 leading-relaxed">
         <section>
           <h2 className="text-xl font-semibold text-forest">1. Acceptance of Terms</h2>
@@ -95,7 +104,7 @@ export function TermsOfService() {
         <section>
           <h2 className="text-xl font-semibold text-forest">11. Contact</h2>
           <p className="mt-3">
-            Email: <a href="mailto:hello@shimlatrek.example" className="text-forest hover:underline">hello@shimlatrek.example</a><br />
+            Email: <a href="mailto:update-before-launch@shimlatrek.com" className="text-forest hover:underline">update-before-launch@shimlatrek.com</a> (placeholder)<br />
             WhatsApp: <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-forest hover:underline">+91 98765 43210</a>
           </p>
         </section>

@@ -45,7 +45,7 @@ export function HomestayCard({ homestay }: { homestay: Homestay }) {
           </p>
           <Link
             to={`/homestays/${homestay.slug}`}
-            className="rounded-md bg-forest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-mountain"
+            className="rounded-md bg-apple px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-apple-dark focus:outline-none focus:ring-2 focus:ring-apple focus:ring-offset-1"
           >
             View Details
           </Link>

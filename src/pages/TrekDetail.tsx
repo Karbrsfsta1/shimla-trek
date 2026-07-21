@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Calendar, MapPin, Users, Star, Flag } from 'lucide-react';
+import { Calendar, MapPin, Users, Star, Flag, MessageSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
@@ -16,6 +16,70 @@ const difficultyStyles: Record<Trek['difficulty'], string> = {
   moderate: 'bg-yellow-100 text-yellow-800',
   challenging: 'bg-red-100 text-red-800',
 };
+
+interface ItineraryDay {
+  day: number;
+  title: string;
+  description: string;
+}
+
+function buildItinerary(trek: Trek): ItineraryDay[] {
+  const { difficulty, duration_days, start_location, end_location } = trek;
+  const days: ItineraryDay[] = [];
+
+  if (difficulty === 'easy' && duration_days === 1) {
+    days.push({
+      day: 1,
+      title: `${start_location} to ${end_location}`,
+      description: `Meet your guide at ${start_location} in the morning for a briefing and gear check. Begin the gentle ascent through deodar and pine forests, pausing at viewpoints for photographs and a packed lunch. Reach ${end_location} by early afternoon, explore the temple and surrounding viewpoints, and descend back to ${start_location} by evening.`,
+    });
+    return days;
+  }
+
+  days.push({
+    day: 1,
+    title: `Arrival at ${start_location}`,
+    description:
+      difficulty === 'challenging'
+        ? `Arrive at ${start_location}, complete registration and permit checks, and meet your lead guide for a full safety briefing. A short acclimatization walk around the base camp helps your body adjust to the altitude. Overnight in tents at the base camp.`
+        : `Arrive at ${start_location}, meet your guide, and settle into the base accommodation. After a briefing on the route and safety, take a gentle evening acclimatization walk through the surrounding forest. Dinner and overnight at the base.`,
+  });
+
+  for (let d = 2; d < duration_days; d++) {
+    const isMid = d === Math.ceil(duration_days / 2);
+    days.push({
+      day: d,
+      title:
+        difficulty === 'challenging'
+          ? isMid
+            ? `Trek to high camp`
+            : `Trek through high altitude trails`
+          : `Trek through scenic trails`,
+      description:
+        difficulty === 'challenging'
+          ? isMid
+            ? `Begin the steep ascent toward the high camp, crossing moraine and possibly snow patches depending on the season. The pace is deliberately slow for acclimatization. Reach the high camp by late afternoon; hot soup and rest.`
+            : `Continue along the ridge with panoramic views of the surrounding peaks. The trail climbs steadily through alpine meadows. Set up camp at the next designated site by evening.`
+          : `After breakfast, set off along forest trails and meadows with views of the Himalayan ranges. The trail is moderate with gradual climbs. Stop for lunch at a scenic spot, then continue to the next campsite. Evening around the campfire.`,
+    });
+  }
+
+  if (duration_days > 1) {
+    days.push({
+      day: duration_days,
+      title:
+        difficulty === 'challenging'
+          ? `Cross the pass and descend to ${end_location}`
+          : `Final stretch to ${end_location}`,
+      description:
+        difficulty === 'challenging'
+          ? `An early start to cross the high pass before afternoon clouds build up. The descent is long and tough on the knees; reach ${end_location} by late afternoon. Transport back to the nearest town is arranged.`
+          : `The final day is a mostly downhill walk through villages and terraced fields, arriving at ${end_location} by afternoon. Share a farewell meal with the group before departing.`,
+    });
+  }
+
+  return days;
+}
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -223,27 +287,33 @@ export function TrekDetail() {
             </section>
 
             <section>
-              <h2 className="mb-3 text-2xl font-semibold text-forest">Itinerary</h2>
-              <div className="rounded-lg border border-gray-100 bg-white p-6 text-gray-600">
-                <p className="mb-2">
-                  <span className="font-semibold text-gray-900">Day 1:</span> Arrival at {trek.start_location}, briefing, and acclimatization walk.
-                </p>
-                <p className="mb-2">
-                  <span className="font-semibold text-gray-900">Day 2 - Day {Math.max(2, trek.duration_days - 1)}:</span> Trek through scenic trails with overnight camping.
-                </p>
-                <p>
-                  <span className="font-semibold text-gray-900">Day {trek.duration_days}:</span> Reach {trek.end_location} and depart.
-                </p>
-                <p className="mt-4 text-sm italic text-gray-400">
-                  A detailed day-by-day itinerary is shared after booking.
-                </p>
-              </div>
+              <h2 className="mb-4 text-2xl font-semibold text-forest">Itinerary</h2>
+              <ol className="space-y-4">
+                {buildItinerary(trek).map((day) => (
+                  <li key={day.day} className="rounded-lg border border-gray-100 bg-white p-5">
+                    <div className="flex items-baseline gap-3">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-forest text-sm font-bold text-white">
+                        {day.day}
+                      </span>
+                      <h3 className="text-lg font-semibold text-gray-900">{day.title}</h3>
+                    </div>
+                    <p className="mt-2 pl-11 leading-relaxed text-gray-600">{day.description}</p>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-4 text-sm italic text-gray-400">
+                A detailed packing list and meeting point map are shared after booking.
+              </p>
             </section>
 
             <section>
               <h2 className="mb-4 text-2xl font-semibold text-forest">Reviews</h2>
               {reviews.length === 0 ? (
-                <p className="text-gray-500">No reviews yet. Be the first to share your experience!</p>
+                <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-gray-300 bg-snow/50 px-6 py-12 text-center">
+                  <MessageSquare className="h-10 w-10 text-mountain" />
+                  <p className="mt-4 text-lg font-medium text-gray-700">No reviews yet</p>
+                  <p className="mt-1 text-sm text-gray-500">Be the first to share your experience!</p>
+                </div>
               ) : (
                 <div className="space-y-4">
                   {reviews.map((review) => (

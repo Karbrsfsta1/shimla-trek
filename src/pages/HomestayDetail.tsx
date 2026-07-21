@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { MapPin, Check, Users, Calendar, MessageCircle } from 'lucide-react';
+import { MapPin, Check, Users, Calendar, MessageCircle, MessageSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';

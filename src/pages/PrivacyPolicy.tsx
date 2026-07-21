@@ -1,5 +1,16 @@
 const LAST_UPDATED = '19 July 2026';
 
+const CONTACT_NOTE = (
+  <div className="mb-8 rounded-lg border border-apple/30 bg-apple/5 p-4 text-sm text-gray-700">
+    <p className="font-medium text-apple">Pre-launch contact placeholder</p>
+    <p className="mt-1">
+      This policy page uses temporary contact details. Before launch, replace all
+      references to <code className="rounded bg-white px-1">update-before-launch@shimlatrek.com</code> and
+      <code className="rounded bg-white px-1">+91 98765 43210</code> with your real business contact information.
+    </p>
+  </div>
+);
+
 const sections = [
   {
     title: '1. Data We Collect',
@@ -79,10 +90,8 @@ const sections = [
     title: '9. Grievance Officer',
     body: (
       <p>
-        For privacy concerns, contact our Grievance Officer:<br />
-        <strong>[YOUR NAME]</strong><br />
-        Email: <a href="mailto:grievance@shimlatrek.example" className="text-forest hover:underline">grievance@shimlatrek.example</a><br />
-        Phone: <span>+91 98765 43210</span>
+        For privacy concerns, contact our Grievance Officer using the contact details
+        noted at the top of this page.
       </p>
     ),
   },
@@ -93,6 +102,8 @@ export function PrivacyPolicy() {
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold text-forest">Privacy Policy</h1>
       <p className="mt-2 text-sm text-gray-500">Last updated: {LAST_UPDATED}</p>
+
+      {CONTACT_NOTE}
 
       <div className="mt-8 space-y-8">
         {sections.map((s) => (
