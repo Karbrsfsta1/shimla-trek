@@ -143,7 +143,7 @@ export function Dashboard() {
           {tab === 'bookings' && (
             <div>
               {bookings.length === 0 ? (
-                <p className="text-gray-500">You have no bookings yet. <Link to="/treks" className="text-forest hover:underline">Explore treks</Link>.</p>
+                <p className="text-gray-500">You have no bookings yet. <Link to="/treks" className="text-forest hover:text-mountain focus:outline-none focus-visible:underline">Explore treks</Link>.</p>
               ) : (
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {bookings.map((b) => {
@@ -163,7 +163,7 @@ export function Dashboard() {
                             {image && <img src={image} alt={title} className="h-full w-full object-cover" />}
                           </div>
                           <div className="flex-1">
-                            <Link to={`/${isTrek ? 'treks' : 'homestays'}/${slug}`} className="font-semibold text-gray-900 hover:text-forest">
+                            <Link to={`/${isTrek ? 'treks' : 'homestays'}/${slug}`} className="font-semibold text-gray-900 hover:text-forest focus:outline-none focus-visible:underline">
                               {title}
                             </Link>
                             {sub && <p className="text-sm text-gray-500">{sub}</p>}
@@ -207,7 +207,7 @@ export function Dashboard() {
                     return (
                       <div key={r.id} className="rounded-lg bg-white p-5 shadow-sm">
                         <div className="flex items-center justify-between">
-                          <Link to={`/${basePath}/${slug}`} className="font-medium text-gray-900 hover:text-forest">{name}</Link>
+                          <Link to={`/${basePath}/${slug}`} className="font-medium text-gray-900 hover:text-forest focus:outline-none focus-visible:underline">{name}</Link>
                           <div className="flex gap-0.5">
                             {Array.from({ length: 5 }).map((_, i) => (
                               <Star key={i} className={`h-4 w-4 ${i < r.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />

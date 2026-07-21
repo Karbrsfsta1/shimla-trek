@@ -114,7 +114,7 @@ export function Register() {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="font-medium text-forest hover:text-mountain">
+          <Link to="/login" className="font-medium text-forest hover:text-mountain focus:outline-none focus-visible:underline">
             Sign in
           </Link>
         </p>

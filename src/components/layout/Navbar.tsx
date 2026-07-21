@@ -24,7 +24,7 @@ export function Navbar() {
   };
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `px-1 py-2 text-gray-700 hover:text-forest transition-colors ${
+    `px-1 py-2 text-gray-700 hover:text-forest transition-colors focus:outline-none focus-visible:text-forest focus-visible:underline ${
       isActive ? 'text-forest font-semibold border-b-2 border-forest' : ''
     }`;
 
@@ -53,7 +53,7 @@ export function Navbar() {
               <>
                 <NavLink
                   to="/dashboard"
-                  className="text-gray-700 hover:text-forest transition-colors"
+                  className="text-gray-700 hover:text-forest transition-colors focus:outline-none focus-visible:text-forest focus-visible:underline"
                 >
                   Dashboard
                 </NavLink>
@@ -80,7 +80,7 @@ export function Navbar() {
           {/* Mobile toggle */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-forest md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-forest focus:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -115,7 +115,7 @@ export function Navbar() {
                   <NavLink
                     to="/dashboard"
                     onClick={() => setOpen(false)}
-                    className="block rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-forest"
+                    className="block rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-forest focus:outline-none focus-visible:text-forest focus-visible:underline"
                   >
                     Dashboard
                   </NavLink>

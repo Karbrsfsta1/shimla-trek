@@ -6,7 +6,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 
 const WHATSAPP_NUMBER = '919876543210';
-const EMAIL = 'hello@shimlatrek.example';
+const EMAIL = 'update-before-launch@shimlatrek.com';
 const OFFICE = 'The Ridge, Shimla, Himachal Pradesh 171001';
 
 export function Contact() {

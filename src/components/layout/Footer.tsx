@@ -33,7 +33,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -42,7 +42,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -51,7 +51,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
               >
                 <Twitter className="h-5 w-5" />
               </a>
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
                   >
                     {link.label}
                   </Link>

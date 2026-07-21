@@ -80,7 +80,7 @@ export function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
         <div className="relative mx-auto max-w-4xl px-4 text-center">
-          <h1 className="text-5xl font-bold text-white md:text-6xl">
+          <h1 className="font-display text-5xl font-bold text-white md:text-6xl">
             Experience the Magic of Himalayas
           </h1>
           <p className="mt-4 text-xl text-gray-200">
@@ -110,7 +110,7 @@ export function Home() {
           {features.map((feature) => (
             <Card key={feature.title} className="p-8">
               <feature.icon className="h-10 w-10 text-forest" />
-              <h3 className="mt-4 text-xl font-semibold text-gray-900">{feature.title}</h3>
+              <h3 className="mt-4 font-display text-xl font-semibold text-gray-900">{feature.title}</h3>
               <p className="mt-2 text-gray-600">{feature.description}</p>
             </Card>
           ))}
@@ -119,10 +119,19 @@ export function Home() {
 
       {/* Featured Treks */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-3xl font-bold text-forest">Popular Treks</h2>
+        <h2 className="mb-12 text-center font-display text-3xl font-bold text-forest">Popular Treks</h2>
         {loading ? (
-          <div className="flex justify-center">
-            <Spinner size="lg" />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="animate-pulse overflow-hidden rounded-lg bg-white shadow-md">
+                <div className="h-48 w-full bg-gray-200" />
+                <div className="space-y-3 p-6">
+                  <div className="h-5 w-3/4 rounded bg-gray-200" />
+                  <div className="h-4 w-1/2 rounded bg-gray-200" />
+                  <div className="h-6 w-1/3 rounded bg-gray-200" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : treks.length === 0 ? (
           <p className="text-center text-gray-500">No treks available yet.</p>
@@ -161,10 +170,19 @@ export function Home() {
 
       {/* Featured Homestays */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-3xl font-bold text-forest">Featured Homestays</h2>
+        <h2 className="mb-12 text-center font-display text-3xl font-bold text-forest">Featured Homestays</h2>
         {loading ? (
-          <div className="flex justify-center">
-            <Spinner size="lg" />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="animate-pulse overflow-hidden rounded-lg bg-white shadow-md">
+                <div className="h-48 w-full bg-gray-200" />
+                <div className="space-y-3 p-6">
+                  <div className="h-5 w-3/4 rounded bg-gray-200" />
+                  <div className="h-4 w-1/2 rounded bg-gray-200" />
+                  <div className="h-6 w-1/3 rounded bg-gray-200" />
+                </div>
+              </div>
+            ))}
           </div>
         ) : homestays.length === 0 ? (
           <p className="text-center text-gray-500">No homestays available yet.</p>
@@ -202,7 +220,7 @@ export function Home() {
       {/* CTA */}
       <section className="bg-forest py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-bold">Ready for your Himalayan adventure?</h2>
+          <h2 className="font-display text-3xl font-bold">Ready for your Himalayan adventure?</h2>
           <div className="mt-8">
             <Link to="/treks">
               <Button
