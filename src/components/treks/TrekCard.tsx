@@ -11,7 +11,7 @@ const difficultyStyles: Record<Trek['difficulty'], string> = {
 
 export function TrekCard({ trek }: { trek: Trek }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg">
+    <div className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl">
       <Link to={`/treks/${trek.slug}`} className="block h-48 w-full overflow-hidden">
         {trek.image_url ? (
           <img
@@ -32,14 +32,14 @@ export function TrekCard({ trek }: { trek: Trek }) {
             <h3 className="text-xl font-bold text-forest hover:text-mountain">{trek.title}</h3>
           </Link>
           <span
-            className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium capitalize ${difficultyStyles[trek.difficulty]}`}
+            className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-xs font-medium capitalize ${difficultyStyles[trek.difficulty]}`}
           >
             {trek.difficulty}
           </span>
         </div>
 
         <div className="mt-2 flex flex-col gap-2 text-sm text-gray-600">
-          <span className="flex items-center gap-2">
+          <span className="flex items-center gap-2 font-mono">
             <Calendar className="h-4 w-4 text-mountain" />
             {trek.duration_days} {trek.duration_days === 1 ? 'day' : 'days'}
           </span>
@@ -50,13 +50,13 @@ export function TrekCard({ trek }: { trek: Trek }) {
         </div>
 
         <div className="mt-4 flex items-center justify-between">
-          <p className="text-lg font-bold text-forest">
+          <p className="font-mono text-lg font-bold text-forest">
             {formatINR(trek.price_per_person)}
-            <span className="text-sm font-normal text-gray-500"> /person</span>
+            <span className="font-sans text-sm font-normal text-gray-500"> /person</span>
           </p>
           <Link
             to={`/treks/${trek.slug}`}
-            className="rounded-md bg-apple px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-apple-dark focus:outline-none focus:ring-2 focus:ring-apple focus:ring-offset-1"
+            className="rounded-lg bg-earth px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-earth-dark focus:outline-none focus:ring-2 focus:ring-earth focus:ring-offset-1"
           >
             View Details
           </Link>

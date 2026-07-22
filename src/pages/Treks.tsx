@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase';
 import type { Trek } from '../types';
 import { TrekCard } from '../components/treks/TrekCard';
 import { Button } from '../components/ui/Button';
-import { Spinner } from '../components/ui/Spinner';
+import { useReveal } from '../hooks/useReveal';
 
 type DifficultyFilter = 'all' | 'easy' | 'moderate' | 'challenging';
 type DurationFilter = 'all' | '1' | '2-3' | '4+';
@@ -14,11 +14,11 @@ const labelClass =
   'block text-sm font-medium text-gray-700 mb-1';
 
 const selectClass =
-  'w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest';
+  'w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 focus:border-mountain focus:outline-none focus:ring-1 focus:ring-mountain';
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-lg bg-white shadow-md">
+    <div className="animate-pulse overflow-hidden rounded-xl bg-white shadow-md">
       <div className="h-48 w-full bg-gray-200" />
       <div className="space-y-3 p-5">
         <div className="h-5 w-3/4 rounded bg-gray-200" />
@@ -31,6 +31,7 @@ function SkeletonCard() {
 }
 
 export function Treks() {
+  useReveal();
   const [treks, setTreks] = useState<Trek[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -93,7 +94,7 @@ export function Treks() {
       {/* Header */}
       <section className="bg-snow py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-forest">All Treks</h1>
+          <h1 className="font-display text-4xl font-bold text-forest">All Treks</h1>
           <p className="mt-2 text-lg text-gray-600">Find your perfect Himalayan adventure</p>
         </div>
       </section>

@@ -9,7 +9,7 @@ import { formatINR } from '../lib/utils';
 import { Button } from '../components/ui/Button';
 import { Spinner } from '../components/ui/Spinner';
 
-const WHATSAPP_NUMBER = '919876543210'; // placeholder
+const WHATSAPP_NUMBER = '917876803910';
 
 export function HomestayDetail() {
   const { slug } = useParams<{ slug: string }>();

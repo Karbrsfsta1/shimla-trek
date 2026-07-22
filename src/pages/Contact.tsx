@@ -5,8 +5,8 @@ import { supabase } from '../lib/supabase';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 
-const WHATSAPP_NUMBER = '919876543210';
-const EMAIL = 'update-before-launch@shimlatrek.com';
+const WHATSAPP_NUMBER = '917876803910';
+const EMAIL = 'kforkartikbforbhardwaj@gmail.com';
 const OFFICE = 'The Ridge, Shimla, Himachal Pradesh 171001';
 
 export function Contact() {
@@ -41,7 +41,7 @@ export function Contact() {
     <div>
       <section className="bg-snow py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-forest">Contact Us</h1>
+          <h1 className="font-display text-4xl font-bold text-forest">Contact Us</h1>
           <p className="mt-2 text-lg text-gray-600">We're here to help plan your Himalayan adventure</p>
         </div>
       </section>
@@ -50,7 +50,7 @@ export function Contact() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Form */}
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-4 rounded-lg bg-white p-8 shadow-md">
+            <form onSubmit={handleSubmit} className="space-y-4 rounded-xl bg-white p-8 shadow-md">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Input label="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                 <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -64,7 +64,7 @@ export function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                  className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-mountain focus:outline-none focus:ring-1 focus:ring-mountain"
                 />
               </div>
               <Button type="submit" loading={loading}>Send Message</Button>
@@ -73,15 +73,15 @@ export function Contact() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h3 className="text-lg font-semibold text-forest">Get in touch</h3>
+            <div className="rounded-xl bg-white p-6 shadow-md">
+              <h3 className="font-display text-lg font-semibold text-forest">Get in touch</h3>
               <ul className="mt-4 space-y-4 text-gray-700">
                 <li className="flex items-start gap-3">
                   <MessageCircle className="mt-0.5 h-5 w-5 text-mountain" />
                   <div>
                     <p className="font-medium">WhatsApp</p>
                     <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer" className="text-sm text-gray-600 hover:text-forest">
-                      +91 98765 43210
+                      +91 78768 03910
                     </a>
                   </div>
                 </li>
@@ -102,7 +102,7 @@ export function Contact() {
               </ul>
             </div>
 
-            <div className="overflow-hidden rounded-lg shadow-md">
+            <div className="overflow-hidden rounded-xl shadow-md">
               <iframe
                 title="Shimla map"
                 src="https://www.google.com/maps?q=Shimla,Himachal+Pradesh&output=embed"

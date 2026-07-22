@@ -5,11 +5,11 @@ import { supabase } from '../lib/supabase';
 import type { Homestay } from '../types';
 import { HomestayCard } from '../components/homestays/HomestayCard';
 import { Button } from '../components/ui/Button';
-import { Spinner } from '../components/ui/Spinner';
+import { useReveal } from '../hooks/useReveal';
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-lg bg-white shadow-md">
+    <div className="animate-pulse overflow-hidden rounded-xl bg-white shadow-md">
       <div className="h-48 w-full bg-gray-200" />
       <div className="space-y-3 p-5">
         <div className="h-5 w-3/4 rounded bg-gray-200" />
@@ -21,6 +21,7 @@ function SkeletonCard() {
 }
 
 export function Homestays() {
+  useReveal();
   const [homestays, setHomestays] = useState<Homestay[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +56,7 @@ export function Homestays() {
     <div>
       <section className="bg-snow py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-forest">All Homestays</h1>
+          <h1 className="font-display text-4xl font-bold text-forest">All Homestays</h1>
           <p className="mt-2 text-lg text-gray-600">Stay with local families across Himachal</p>
         </div>
       </section>
@@ -71,7 +72,7 @@ export function Homestays() {
               placeholder="Search by location or name..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-md border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm focus:border-forest focus:outline-none focus:ring-1 focus:ring-forest"
+              className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm focus:border-mountain focus:outline-none focus:ring-1 focus:ring-mountain"
             />
           </div>
         </div>

@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 @theme {
-  --color-forest: #2d5016;
-  --color-mountain: #6b8e23;
-  --color-sky: #87ceeb;
-  --color-earth: #8b4513;
-  --color-snow: #fffafa;
-  --color-apple: #a63d40;
+  --color-forest: #1B2A1E;
+  --color-mountain: #3F6B3F;
+  --color-sky: #6E93A8;
+  --color-earth: #C1652F;
+  --color-snow: #F7F5F0;
+  --color-apple: #C1652F;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 @layer base {
@@ -27,5 +28,16 @@
 @layer components {
   .skeleton-shimmer {
     @apply animate-pulse rounded bg-gray-200;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

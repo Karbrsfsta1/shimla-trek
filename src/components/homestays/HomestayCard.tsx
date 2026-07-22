@@ -5,7 +5,7 @@ import { formatINR } from '../../lib/utils';
 
 export function HomestayCard({ homestay }: { homestay: Homestay }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg">
+    <div className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl">
       <Link to={`/homestays/${homestay.slug}`} className="block h-48 w-full overflow-hidden">
         {homestay.image_url ? (
           <img
@@ -31,7 +31,7 @@ export function HomestayCard({ homestay }: { homestay: Homestay }) {
         {homestay.amenities.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
             {homestay.amenities.slice(0, 3).map((a) => (
-              <span key={a} className="rounded-full bg-sky/30 px-2.5 py-1 text-xs font-medium text-earth">
+              <span key={a} className="rounded-full bg-sky/30 px-2.5 py-1 font-mono text-xs font-medium text-earth">
                 {a}
               </span>
             ))}
@@ -39,13 +39,13 @@ export function HomestayCard({ homestay }: { homestay: Homestay }) {
         )}
 
         <div className="mt-4 flex items-center justify-between">
-          <p className="text-lg font-bold text-forest">
+          <p className="font-mono text-lg font-bold text-forest">
             {formatINR(homestay.price_per_night)}
-            <span className="text-sm font-normal text-gray-500"> /night</span>
+            <span className="font-sans text-sm font-normal text-gray-500"> /night</span>
           </p>
           <Link
             to={`/homestays/${homestay.slug}`}
-            className="rounded-md bg-apple px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-apple-dark focus:outline-none focus:ring-2 focus:ring-apple focus:ring-offset-1"
+            className="rounded-lg bg-earth px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-earth-dark focus:outline-none focus:ring-2 focus:ring-earth focus:ring-offset-1"
           >
             View Details
           </Link>

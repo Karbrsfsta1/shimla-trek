@@ -33,7 +33,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold text-forest">
+          <NavLink to="/" className="flex items-center gap-2 font-display text-2xl font-bold text-forest">
             <Mountain className="h-7 w-7" />
             <span>ShimlaTrek</span>
           </NavLink>

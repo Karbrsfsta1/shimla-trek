@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Leaf, Users, ShieldCheck, Mountain } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { useReveal } from '../hooks/useReveal';
 
 const ABOUT_HERO = 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920&q=80';
 
@@ -23,6 +24,7 @@ const values = [
 ];
 
 export function About() {
+  useReveal();
   return (
     <div>
       {/* Hero */}
@@ -35,14 +37,15 @@ export function About() {
         }}
       >
         <div className="relative text-center">
-          <h1 className="text-5xl font-bold text-white">About ShimlaTrek</h1>
+          <h1 className="font-display text-5xl font-bold text-white">About ShimlaTrek</h1>
           <p className="mt-3 text-xl text-gray-200">Local roots, Himalayan soul</p>
         </div>
       </section>
 
       {/* Story */}
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-forest">Our Story</h2>
+        <div className="reveal">
+        <h2 className="font-display text-3xl font-bold text-forest">Our Story</h2>
         <div className="mt-6 space-y-4 text-gray-700 leading-relaxed">
           <p>
             Born in the heart of Shimla, ShimlaTrek began as a small group of friends sharing their
@@ -61,13 +64,12 @@ export function About() {
             hands of the communities that make these mountains worth visiting.
           </p>
         </div>
+        </div>
       </section>
-
-      {/* Mission */}
       <section className="bg-snow py-16">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <Mountain className="mx-auto h-10 w-10 text-forest" />
-          <h2 className="mt-4 text-3xl font-bold text-forest">Our Mission</h2>
+          <h2 className="reveal mt-4 font-display text-3xl font-bold text-forest">Our Mission</h2>
           <p className="mt-4 text-lg text-gray-700">
             To connect travelers with authentic Himalayan experiences while supporting local communities.
           </p>
@@ -76,12 +78,12 @@ export function About() {
 
       {/* Values */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold text-forest">Our Values</h2>
+        <h2 className="reveal text-center font-display text-3xl font-bold text-forest">Our Values</h2>
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
           {values.map((v) => (
-            <div key={v.title} className="rounded-lg bg-white p-8 shadow-md">
+            <div key={v.title} className="reveal rounded-xl bg-white p-8 shadow-md">
               <v.icon className="h-10 w-10 text-forest" />
-              <h3 className="mt-4 text-xl font-semibold text-gray-900">{v.title}</h3>
+              <h3 className="mt-4 font-display text-xl font-semibold text-gray-900">{v.title}</h3>
               <p className="mt-2 text-gray-600">{v.description}</p>
             </div>
           ))}
@@ -91,7 +93,7 @@ export function About() {
       {/* CTA */}
       <section className="bg-forest py-16 text-center text-white">
         <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-bold">Have a question?</h2>
+          <h2 className="reveal font-display text-3xl font-bold">Have a question?</h2>
           <p className="mt-2 text-gray-200">We'd love to hear from you.</p>
           <div className="mt-8">
             <Link to="/contact">

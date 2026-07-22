@@ -27,6 +27,14 @@ export function Footer() {
               <span>ShimlaTrek</span>
             </div>
             <p className="mt-3 text-sm text-gray-400">Discover the Himalayas with us</p>
+            <div className="mt-4 space-y-1 text-sm text-gray-400">
+              <a href="mailto:kforkartikbforbhardwaj@gmail.com" className="block hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
+                kforkartikbforbhardwaj@gmail.com
+              </a>
+              <a href="https://wa.me/917876803910" target="_blank" rel="noreferrer" className="block hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
+                +91 78768 03910
+              </a>
+            </div>
             <div className="mt-4 flex gap-4">
               <a
                 href="https://facebook.com"

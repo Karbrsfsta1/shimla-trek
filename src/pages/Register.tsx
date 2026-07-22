@@ -47,8 +47,8 @@ export function Register() {
 
   return (
     <div className="mx-auto mt-20 max-w-md px-4">
-      <div className="rounded-lg bg-white p-8 shadow-md">
-        <h1 className="text-2xl font-bold text-forest">Create Account</h1>
+      <div className="rounded-xl bg-white p-8 shadow-md">
+        <h1 className="font-display text-2xl font-bold text-forest">Create Account</h1>
         <p className="mt-1 text-sm text-gray-500">Join ShimlaTrek to start your Himalayan adventure</p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

@@ -1,12 +1,13 @@
 const LAST_UPDATED = '19 July 2026';
 
 const CONTACT_NOTE = (
-  <div className="mb-8 rounded-lg border border-apple/30 bg-apple/5 p-4 text-sm text-gray-700">
-    <p className="font-medium text-apple">Pre-launch contact placeholder</p>
+  <div className="mb-8 rounded-lg border border-mountain/30 bg-mountain/5 p-4 text-sm text-gray-700">
+    <p className="font-medium text-mountain">Grievance Officer</p>
     <p className="mt-1">
-      This policy page uses temporary contact details. Before launch, replace all
-      references to <code className="rounded bg-white px-1">update-before-launch@shimlatrek.com</code> and
-      <code className="rounded bg-white px-1">+91 98765 43210</code> with your real business contact information.
+      For any privacy-related concerns, contact our Grievance Officer at{" "}
+      <a href="mailto:kforkartikbforbhardwaj@gmail.com" className="text-forest hover:underline">kforkartikbforbhardwaj@gmail.com</a>{" "}
+      or WhatsApp{" "}
+      <a href="https://wa.me/917876803910" target="_blank" rel="noreferrer" className="text-forest hover:underline">+91 78768 03910</a>.
     </p>
   </div>
 );
