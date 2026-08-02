@@ -11,7 +11,8 @@ export function HomestayCard({ homestay }: { homestay: Homestay }) {
           <img
             src={homestay.image_url}
             alt={homestay.name}
-            className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
           <div className="flex h-48 w-full items-center justify-center bg-gray-100 text-gray-400">

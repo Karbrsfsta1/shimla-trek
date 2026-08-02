@@ -17,7 +17,8 @@ export function TrekCard({ trek }: { trek: Trek }) {
           <img
             src={trek.image_url}
             alt={trek.title}
-            className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
           <div className="flex h-48 w-full items-center justify-center bg-gray-100 text-gray-400">

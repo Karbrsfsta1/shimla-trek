@@ -35,6 +35,12 @@ const paymentStyles: Record<Booking['payment_status'], string> = {
   refunded: 'bg-gray-100 text-gray-800',
 };
 
+const tabs: { key: Tab; label: string }[] = [
+  { key: 'bookings', label: 'My Bookings' },
+  { key: 'reviews', label: 'My Reviews' },
+  { key: 'profile', label: 'Profile' },
+];
+
 export function Dashboard() {
   const { user, profile } = useAuth();
   const [tab, setTab] = useState<Tab>('bookings');
@@ -102,32 +108,31 @@ export function Dashboard() {
 
   if (!user) return null;
 
-  const tabs: { key: Tab; label: string }[] = [
-    { key: 'bookings', label: 'My Bookings' },
-    { key: 'reviews', label: 'My Reviews' },
-    { key: 'profile', label: 'Profile' },
-  ];
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-forest">
+      <h1 className="text-3xl font-bold text-forest animate-fade-in-up">
         Welcome, {profile?.full_name || user.email}!
       </h1>
 
-      {/* Tabs */}
+      {/* Tabs with animated indicator */}
       <div className="mt-6 border-b border-gray-200">
-        <nav className="-mb-px flex gap-6">
+        <nav className="relative flex gap-6">
           {tabs.map((t) => (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`whitespace-nowrap border-b-2 px-1 py-3 text-sm font-medium transition-colors ${
+              className={`relative whitespace-nowrap px-1 py-3 text-sm font-medium transition-colors duration-200 focus:outline-none ${
                 tab === t.key
-                  ? 'border-forest text-forest'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
+                  ? 'text-forest'
+                  : 'text-gray-500 hover:text-gray-700'
               }`}
             >
               {t.label}
+              <span
+                className={`absolute -bottom-px left-0 h-0.5 rounded-full bg-forest transition-all duration-300 ease-out ${
+                  tab === t.key ? 'w-full opacity-100' : 'w-0 opacity-0'
+                }`}
+              />
             </button>
           ))}
         </nav>
@@ -138,7 +143,7 @@ export function Dashboard() {
           <Spinner size="lg" />
         </div>
       ) : (
-        <div className="mt-8">
+        <div key={tab} className="mt-8 animate-fade-in-up">
           {/* Bookings tab */}
           {tab === 'bookings' && (
             <div>
@@ -157,10 +162,13 @@ export function Dashboard() {
                       ? `${trek.start_location} → ${trek.end_location} · ${trek.duration_days}d`
                       : homestay?.location ?? '';
                     return (
-                      <div key={b.id} className="overflow-hidden rounded-lg bg-white shadow-md">
+                      <div
+                        key={b.id}
+                        className="overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                      >
                         <div className="flex gap-4 p-4">
                           <div className="h-24 w-24 shrink-0 overflow-hidden rounded-md bg-gray-100">
-                            {image && <img src={image} alt={title} className="h-full w-full object-cover" />}
+                            {image && <img src={image} alt={title} loading="lazy" className="h-full w-full object-cover" />}
                           </div>
                           <div className="flex-1">
                             <Link to={`/${isTrek ? 'treks' : 'homestays'}/${slug}`} className="font-semibold text-gray-900 hover:text-forest focus:outline-none focus-visible:underline">
@@ -205,7 +213,10 @@ export function Dashboard() {
                     const slug = r.treks?.slug ?? r.homestays?.slug ?? '';
                     const basePath = r.treks ? 'treks' : 'homestays';
                     return (
-                      <div key={r.id} className="rounded-lg bg-white p-5 shadow-sm">
+                      <div
+                        key={r.id}
+                        className="rounded-lg bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                      >
                         <div className="flex items-center justify-between">
                           <Link to={`/${basePath}/${slug}`} className="font-medium text-gray-900 hover:text-forest focus:outline-none focus-visible:underline">{name}</Link>
                           <div className="flex gap-0.5">
