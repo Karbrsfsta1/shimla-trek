@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --color-forest: #1B2A1E;
-  --color-mountain: #3F6B3F;
-  --color-sky: #6E93A8;
-  --color-earth: #C1652F;
-  --color-snow: #F7F5F0;
-  --color-apple: #C1652F;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-}
-
 @layer base {
   body {
     font-family: 'Inter', system-ui, sans-serif;
